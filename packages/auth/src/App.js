@@ -7,6 +7,8 @@ import {
 import SignIn from "./components/Signin";
 import SignUp from "./components/Signup";
 
+console.log("deploy auth test");
+
 const generateClassName = createGenerateClassName({
   productionPrefix: "au",
 });

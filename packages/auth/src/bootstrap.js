@@ -7,10 +7,7 @@ import { createMemoryHistory, createBrowserHistory } from "history";
 const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
   // if in development use defaultHistory(BrowserHistory), if not use memory history
   let history =
-    defaultHistory ||
-    createMemoryHistory({
-      initialEntries: [initialPath],
-    });
+    defaultHistory || createMemoryHistory({ initialEntries: [initialPath] });
 
   if (onNavigate) history.listen(onNavigate);
 
@@ -27,7 +24,7 @@ const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
 
 // If we are in development and isolation immediately mount app
 if (process.env.NODE_ENV === "development") {
-  const root = document.querySelector("#_marketing-dev-root");
+  const root = document.querySelector("#_auth-dev-root");
 
   if (root) {
     mount(root, { defaultHistory: createBrowserHistory() });

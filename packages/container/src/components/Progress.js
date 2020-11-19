@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => {
   });
 });
 
-export default () => {
+const Progress = () => {
   const classes = useStyles();
 
   return (
@@ -22,3 +22,5 @@ export default () => {
     </div>
   );
 };
+
+export default Progress;

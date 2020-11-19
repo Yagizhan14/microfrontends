@@ -1,45 +1,45 @@
-import React from 'react';
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
-import { Link } from 'react-router-dom';
+import React from "react";
+import Avatar from "@material-ui/core/Avatar";
+import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Checkbox from "@material-ui/core/Checkbox";
+import { Grid } from "@material-ui/core";
+import Box from "@material-ui/core/Box";
+import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles, Theme } from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
+import { Link } from "react-router-dom";
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
+      {"Copyright © "}
       <Link to="/">Your Website</Link> {new Date().getFullYear()}
-      {'.'}
+      {"."}
     </Typography>
   );
 }
 
-const useStyles = makeStyles((theme) => ({
-  '@global': {
+const useStyles = makeStyles((theme: Theme) => ({
+  "@global": {
     a: {
-      textDecoration: 'none',
+      textDecoration: "none",
     },
   },
   paper: {
     marginTop: theme.spacing(8),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
   },
   avatar: {
     margin: theme.spacing(1),
     backgroundColor: theme.palette.secondary.main,
   },
   form: {
-    width: '100%',
+    width: "100%",
     marginTop: theme.spacing(3),
   },
   submit: {
@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignUp({ onSignIn }) {
+const SignUp = ({ onSignIn }) => {
   const classes = useStyles();
 
   return (
@@ -64,8 +64,8 @@ export default function SignUp({ onSignIn }) {
           className={classes.form}
           noValidate
         >
-          <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
+          <Grid container component="div" spacing={2}>
+            <Grid item component="div" xs={12} sm={6}>
               <TextField
                 autoComplete="fname"
                 name="firstName"
@@ -140,4 +140,6 @@ export default function SignUp({ onSignIn }) {
       </Box>
     </Container>
   );
-}
+};
+
+export default SignUp;

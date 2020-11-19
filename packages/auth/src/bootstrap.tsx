@@ -1,12 +1,27 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import { createMemoryHistory, createBrowserHistory } from "history";
+import {
+  createMemoryHistory,
+  createBrowserHistory,
+  MemoryHistory,
+  History,
+} from "history";
+
+interface IMountOptions {
+  defaultHistory: History;
+  initialPath?: string;
+  onSignIn?: () => void;
+  onNavigate?: () => void;
+}
 
 // Mount function to start the app
-const mount = (el, { onNavigate, defaultHistory, initialPath, onSignIn }) => {
+const mount = (
+  el: Element,
+  { onNavigate, defaultHistory, initialPath, onSignIn }: IMountOptions,
+) => {
   // if in development use defaultHistory(BrowserHistory), if not use memory history
-  let history =
+  let history: MemoryHistory | History =
     defaultHistory || createMemoryHistory({ initialEntries: [initialPath] });
 
   if (onNavigate) history.listen(onNavigate);

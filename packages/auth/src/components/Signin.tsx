@@ -109,7 +109,11 @@ const SignIn = ({ onSignIn }: ISingInProps) => {
           </Button>
           <Grid container component="div">
             <Grid item component="div">
-              <Link to="/auth/signup">{"Don't have an account? Sign Up"}</Link>
+              <Link to="/auth/signup">
+                <Typography component="p" variant="subtitle1">
+                  Don't have an account? Sign Up
+                </Typography>
+              </Link>
             </Grid>
           </Grid>
         </form>

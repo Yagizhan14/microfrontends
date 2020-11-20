@@ -1,3 +1,4 @@
+import "../remotes.decl.d";
 import React, { useRef, useEffect } from "react";
 import { mount as mountDashboard } from "dashboard/DashboardApp";
 

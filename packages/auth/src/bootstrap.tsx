@@ -9,10 +9,10 @@ import {
 } from "history";
 
 interface IMountOptions {
-  defaultHistory: History;
+  defaultHistory?: History;
   initialPath?: string;
   onSignIn?: () => void;
-  onNavigate?: () => void;
+  onNavigate?: ({ pathname }: { pathname: string }) => void;
 }
 
 // Mount function to start the app
@@ -37,7 +37,7 @@ const mount = (
   };
 };
 
-// If we are in development and isolation immediately mount app
+// If we are in development mount app
 if (process.env.NODE_ENV === "development") {
   const root = document.querySelector("#_auth-dev-root");
 
@@ -47,4 +47,4 @@ if (process.env.NODE_ENV === "development") {
 }
 
 // If we are in production export mount function
-export { mount };
+export default mount;

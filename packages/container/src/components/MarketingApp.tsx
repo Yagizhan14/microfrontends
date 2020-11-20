@@ -1,15 +1,15 @@
+import "../remotes.decl.d";
 import React, { useRef, useEffect } from "react";
-import { mount as mountAuth } from "auth/AuthApp";
+import { mount as mountMarketing } from "marketing/MarketingApp";
 import { useHistory } from "react-router-dom";
 
-export default ({ onSignIn }) => {
+export default () => {
   const ref = useRef(null);
   const history = useHistory();
 
   useEffect(() => {
-    const { onParentNavigate } = mountAuth(ref.current, {
+    const { onParentNavigate } = mountMarketing(ref.current, {
       initialPath: history.location.pathname,
-      onSignIn: () => onSignIn(),
       onNavigate: ({ pathname: nextPathname }) => {
         if (history.location.pathname !== nextPathname) {
           history.push(nextPathname);

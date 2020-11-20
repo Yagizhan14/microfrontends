@@ -128,9 +128,13 @@ const SignUp = ({ onSignIn }) => {
           >
             Sign Up
           </Button>
-          <Grid container justify="flex-end">
+          <Grid container justify="flex-start">
             <Grid item>
-              <Link to="/auth/signin">Already have an account? Sign in</Link>
+              <Link to="/auth/signin">
+                <Typography component="p" variant="subtitle1">
+                  Already have an account? Sign in
+                </Typography>
+              </Link>
             </Grid>
           </Grid>
         </form>

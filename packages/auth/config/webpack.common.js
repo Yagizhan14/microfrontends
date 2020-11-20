@@ -1,40 +1,35 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: "./src/index",
-  /// For JS only
-  // {
-  //   test: /\.m?js$/,
-  //   exclude: /node_modules/,
-  //   use: {
-  //     loader: "babel-loader",
-  //     options: {
-  //       presets: ["@babel/preset-react", "@babel/preset-env"],
-  //       plugins: ["@babel/plugin-transform-runtime"],
-  //     },
-  //   },
-  // },
   resolve: {
-    extensions: [".ts", ".tsx", ".js"],
+    extensions: [".tsx", ".ts", ".jsx", ".js", ".json"],
   },
   module: {
     rules: [
       {
-        test: /bootstrap\.tsx$/,
-        loader: "bundle-loader",
-        options: {
-          lazy: true,
-        },
-      },
-      {
-        test: /\.tsx?$/,
+        test: /\.(ts|tsx|js|jsx)$/,
         loader: "babel-loader",
         exclude: /node_modules/,
         options: {
-          presets: ["@babel/preset-react", "@babel/preset-typescript"],
-          plugins: ["@babel/plugin-transform-runtime"],
+          presets: [
+            "@babel/preset-react",
+            "@babel/preset-typescript",
+            "@babel/preset-env",
+          ],
         },
       },
+      /// For JS only
+      // {
+      //   test: /\.m?js$/,
+      //   exclude: /node_modules/,
+      //   use: {
+      //     loader: "babel-loader",
+      //     options: {
+      //       presets: ["@babel/preset-react", "@babel/preset-env"],
+      //       plugins: ["@babel/plugin-transform-runtime"],
+      //     },
+      //   },
+      // },
     ],
   },
   plugins: [
